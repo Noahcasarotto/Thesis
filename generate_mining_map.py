@@ -6,14 +6,16 @@ import sys
 import time
 import math
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Configuration
 # TODO: Replace with your actual Google Maps API Key
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
-    # Fallback or instructions
-    GOOGLE_API_KEY = "YOUR_GOOGLE_API_KEY_HERE"
-    print("Warning: GOOGLE_API_KEY environment variable not set.")
+    print("Warning: GOOGLE_API_KEY environment variable not set. Please create a .env file.")
 INPUT_FILE = "Mining_Locations .xlsx"
 OUTPUT_MATRIX_FILE = "driving_distance_matrix.csv"
 OUTPUT_MAP_FILE = "mining_map.html"
